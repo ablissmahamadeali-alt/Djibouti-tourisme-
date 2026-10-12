@@ -1,3 +1,19 @@
+# Bahri — règles du projet
+
+Lire `README.md` et `docs/architecture.md` avant toute modification.
+
+- Langue de l'interface, des commentaires et de la documentation : **français**.
+- Toute donnée affichée porte un niveau de fiabilité (`demo` / `unverified` / `verified`) ; ne jamais présenter une liaison, un horaire, un tarif ou un prestataire comme vérifié sans base.
+- Aucune confirmation de réservation ou de paiement sans réponse positive du serveur.
+- La machine à états des réservations existe en TS (`src/domain/booking-status.ts`) **et** en SQL (`booking_transition_allowed`) : les modifier ensemble (un test vérifie la parité).
+- Toute nouvelle table : RLS activée, privilèges explicites, tests dans `supabase/tests/database.test.mjs`.
+- Ne jamais placer de fichier non-route (tests, utilitaires) dans `src/app/`.
+- Aucune clé secrète dans le dépôt ; seule la clé publique Supabase est autorisée côté app.
+- Avant de terminer : `npm run check` (typecheck, lint, Jest, tests SQL).
+- Réseau restreint (environnement cloud) : préfixer les commandes Expo par `EXPO_OFFLINE=1` (ex. `EXPO_OFFLINE=1 npx expo install <paquet>`).
+
+---
+
 This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
 
 ## Expo has changed — do not trust your training data

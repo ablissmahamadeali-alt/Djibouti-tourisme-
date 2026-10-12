@@ -1,56 +1,88 @@
-# Welcome to your Expo app 👋
+# Bahri — traversées et tourisme à Djibouti
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Application mobile (Android et iOS, base de code unique) de mise en relation pour le transport maritime et le tourisme à Djibouti : traversées du golfe de Tadjourah, destinations, excursions, hébergements et prestataires locaux.
 
-## Get started
+> **Nom provisoire.** « Bahri » (« maritime » en arabe) est un nom de travail. Vérifier sa disponibilité (marque, nom de domaine, boutiques d'applications) avant tout lancement.
 
-1. Install dependencies
+> **Statut : prototype fonctionnel en mode démonstration.** Toutes les offres affichées (prestataires, trajets, horaires, tarifs, hébergements, excursions, annonces) sont **fictives** et signalées comme telles dans l'application. Les destinations sont des lieux réels, mais leurs descriptions ne sont **pas vérifiées**.
 
-   ```bash
-   npm install
-   ```
+Bahri est une plateforme **indépendante d'intermédiation**. Elle n'est ni armateur, ni exploitant de lignes maritimes, ni hôtel, et ne détient aucune autorisation officielle à ce jour.
 
-2. Start the app
+![Aperçu : accueil, fiche destination, découverte, séjours (version web, mode démonstration)](docs/apercu-ecrans.png)
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## Ce qui fonctionne aujourd'hui
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+| Domaine | État |
+| --- | --- |
+| Accueil (marque, recherche de traversée, destinations, excursions, hébergements, offre sponsorisée signalée) | ✅ |
+| Traversées : recherche origine / destination / date / passagers, résultats, détail, places restantes | ✅ |
+| Tourisme : destinations, excursions, circuits, activités, coordonnées du prestataire | ✅ |
+| Hébergements : liste, fiche, demande | ✅ |
+| Demande de réservation : formulaire validé, manifeste nominatif pour les traversées, confirmation avec référence, suivi, annulation | ✅ |
+| Compte : historique des demandes, confidentialité, connexion par code e-mail (actif avec Supabase) | ✅ |
+| Base de données Supabase : schéma, sécurité RLS, contrôle de capacité côté serveur, journal d'audit | ✅ (testée localement) |
+| Tableau de bord d'administration web | 🟡 base de données et droits prêts ; interface à construire |
+| Paiements | ⏸️ désactivés volontairement (voir [docs/paiements.md](docs/paiements.md)) |
+| Notifications push | ⏸️ table `notifications` prête ; envoi push à brancher |
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Démarrage rapide
 
-## Get a fresh project
-
-When you're ready, run:
+Prérequis : Node.js 20 ou plus récent, npm, et l'application **Expo Go** ou un *development build* sur votre téléphone.
 
 ```bash
-npm run reset-project
+npm install
+npm start            # puis scanner le QR code avec le téléphone
+npm run web          # aperçu dans le navigateur
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Sans fichier `.env`, l'application démarre en **mode démonstration**. Pour la brancher sur Supabase, copier `.env.example` en `.env` et suivre [docs/supabase.md](docs/supabase.md).
 
-### Other setup steps
+## Commandes de qualité
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+npm run typecheck    # TypeScript strict
+npm run lint         # ESLint (règles Expo + React Compiler)
+npm test             # tests unitaires et d'interface (Jest)
+npm run test:db      # tests SQL : migrations, RLS, réservations (PostgreSQL embarqué, sans serveur)
+npm run check        # tout ce qui précède
+```
 
-## Learn more
+## Structure
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+src/
+  app/            Écrans (Expo Router : chaque fichier = une route)
+  components/     Composants métier (cartes, recherche) et ui/ (système de design)
+  data/           Accès aux données : interfaces, mode démo, adaptateur Supabase
+  design/         Jetons du système de design (couleurs, typo, espacements)
+  domain/         Règles métier pures : statuts de réservation, validation, formats
+  i18n/           Traductions (fr, en)
+supabase/
+  migrations/     Schéma, sécurité (RLS), fonctions de réservation
+  seed.sql        Données de démonstration (recette uniquement)
+  tests/          Tests SQL exécutés avec PGlite
+docs/             Architecture, juridique, paiements, budget, publication
+assets/           Icônes et écran de démarrage
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Documentation
 
-## Join the community
+- [Architecture et choix techniques](docs/architecture.md)
+- [Système de design](docs/design-system.md)
+- [Mise en place de Supabase](docs/supabase.md)
+- [Points juridiques et réglementaires à vérifier](docs/juridique.md)
+- [Paiements et monétisation](docs/paiements.md)
+- [Budget](docs/budget.md)
+- [Compilation et publication Android / iOS](docs/publication.md)
+- [Feuille de route](docs/feuille-de-route.md)
+- [Projet de politique de confidentialité](docs/politique-confidentialite.md)
 
-Join our community of developers creating universal apps.
+## Règles du projet
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. **Aucune donnée non vérifiée présentée comme vérifiée.** Chaque contenu porte un niveau de fiabilité : `demo`, `unverified` ou `verified`, affiché à l'écran.
+2. **Aucune confirmation sans le serveur.** Une demande n'est affichée comme envoyée qu'après réponse positive ; elle n'est garantie qu'après confirmation du prestataire.
+3. **Sécurité côté serveur.** Disponibilités, droits et transitions de statut sont contrôlés par la base de données, jamais uniquement par l'application.
+4. **Aucun secret dans le dépôt.** Seule la clé *publique* Supabase peut figurer dans l'application.
+5. **Contenus sponsorisés toujours signalés.**

@@ -93,7 +93,10 @@ export function validateBookingRequest(
   if (result.success) return { ok: true, value: result.data };
   const errors: FieldErrors = {};
   for (const issue of result.error.issues) {
-    const key = issue.path.length > 0 ? String(issue.path[0]) : 'form';
+    // Les erreurs d'un passager sont rattachées à son champ : « passengers.0 », « passengers.1 »…
+    const [head, index] = issue.path;
+    const key =
+      head === undefined ? 'form' : head === 'passengers' && typeof index === 'number' ? `passengers.${index}` : String(head);
     errors[key] ??= issue.message;
   }
   return { ok: false, errors };

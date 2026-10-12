@@ -52,13 +52,13 @@ export function Visual({
   }
 
   const h = hash(seed);
-  const horizon = 0.48 + ((h >> 4) % 18) / 100;
+  const horizon = 0.48 + ((h >>> 4) % 18) / 100;
   return (
     <View
       style={[styles.frame, { height, borderRadius: radius, backgroundColor: skies[h % skies.length] }, style]}
       accessibilityElementsHidden
       importantForAccessibility="no-hide-descendants">
-      <View style={[styles.sea, { top: `${horizon * 100}%`, backgroundColor: seas[(h >> 2) % seas.length] }]} />
+      <View style={[styles.sea, { top: Math.round(height * horizon), backgroundColor: seas[(h >>> 2) % seas.length] }]} />
       <View style={styles.shore} />
       <View style={styles.label}>
         <Icon name={icon} size={16} color={palette.sand100} />

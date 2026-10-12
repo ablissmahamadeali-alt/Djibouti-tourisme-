@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 
 import { colors, radii, spacing } from '@/design/tokens';
@@ -10,7 +10,7 @@ import { Icon, type IconName } from './Icon';
 
 /** Squelettes de chargement : plus rassurants qu'un indicateur seul sur réseau lent. */
 export function LoadingState({ rows = 3 }: { rows?: number }) {
-  const opacity = useRef(new Animated.Value(0.5)).current;
+  const [opacity] = useState(() => new Animated.Value(0.5));
   useEffect(() => {
     const loop = Animated.loop(
       Animated.sequence([

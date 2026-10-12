@@ -1,6 +1,6 @@
 import { normalizePhone, validateBookingRequest, type BookingRequestInput } from '../booking-request';
 import { generateBookingReference, isBookingReference } from '../booking-reference';
-import { formatDjf, formatDuration } from '../format';
+import { formatDate, formatDjf, formatDuration, formatPhone } from '../format';
 import { addDays, djiboutiDate, djiboutiTime, djiboutiToday } from '../time';
 
 const TODAY = '2026-10-12';
@@ -58,6 +58,14 @@ describe('validateBookingRequest', () => {
     expect(result).toEqual({ ok: false, errors: expect.objectContaining({ passengers: 'validation.passengers' }) });
   });
 
+  it('rattache l’erreur au passager concerné', () => {
+    const result = validateBookingRequest(
+      crossing({ passengers: [{ fullName: 'Amina Hassan', category: 'adult' }, { fullName: ' ', category: 'child' }] }),
+      TODAY,
+    );
+    expect(result).toEqual({ ok: false, errors: { 'passengers.1': 'validation.name' } });
+  });
+
   it('n’exige pas de manifeste pour une excursion', () => {
     const result = validateBookingRequest(crossing({ kind: 'experience', partySize: 4, passengers: [] }), TODAY);
     expect(result.ok).toBe(true);
@@ -104,5 +112,9 @@ describe('heure de Djibouti et formats', () => {
     expect(formatDjf(12500)).toBe('12 500 DJF');
     expect(formatDuration(150)).toBe('2 h 30');
     expect(formatDuration(45)).toBe('45 min');
+    expect(formatDate('2026-10-14')).toBe('mer. 14 oct. 2026');
+    expect(formatDate('2026-10-14', 'en')).toBe('Wed 14 Oct 2026');
+    expect(formatPhone('+25377123456')).toBe('+253 77 12 34 56');
+    expect(formatPhone('+33612345678')).toBe('+33612345678');
   });
 });

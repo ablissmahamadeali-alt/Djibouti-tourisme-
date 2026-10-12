@@ -62,15 +62,17 @@ export function ChoiceChips<T extends string>({
   options,
   value,
   onChange,
+  hideLabel = false,
 }: {
   label: string;
+  hideLabel?: boolean;
   options: { value: T; label: string }[];
   value: T | null;
   onChange: (value: T) => void;
 }) {
   return (
     <View style={styles.group} accessibilityRole="radiogroup" accessibilityLabel={label}>
-      <AppText variant="smallStrong">{label}</AppText>
+      {!hideLabel && <AppText variant="smallStrong">{label}</AppText>}
       <View style={styles.chips}>
         {options.map((option) => {
           const selected = option.value === value;

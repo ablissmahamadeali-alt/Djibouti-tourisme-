@@ -19,6 +19,7 @@ export const en: Dictionary = {
     requestBooking: 'Request a booking',
     notFound: 'This page does not exist.',
     goHome: 'Back to home',
+    djiboutiTime: 'Djibouti time',
   },
   tabs: { home: 'Home', crossings: 'Crossings', explore: 'Explore', stays: 'Stays', account: 'Account' },
   reliability: {
@@ -88,6 +89,7 @@ export const en: Dictionary = {
     partySize: 'Number of people',
     passengers: 'Passengers',
     passengerName: 'Full name of passenger {index}',
+    passengerCategory: 'Category of passenger {index}',
     category: { adult: 'Adult', child: 'Child', infant: 'Infant' },
     contactName: 'Your name',
     contactPhone: 'Phone',

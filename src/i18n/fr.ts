@@ -17,6 +17,7 @@ export const fr = {
     requestBooking: 'Demander une réservation',
     notFound: 'Cette page n’existe pas ou plus.',
     goHome: 'Revenir à l’accueil',
+    djiboutiTime: 'heure de Djibouti',
   },
   tabs: {
     home: 'Accueil',
@@ -94,6 +95,7 @@ export const fr = {
     partySize: 'Nombre de personnes',
     passengers: 'Passagers',
     passengerName: 'Nom complet du passager {index}',
+    passengerCategory: 'Catégorie du passager {index}',
     category: { adult: 'Adulte', child: 'Enfant', infant: 'Bébé' },
     contactName: 'Votre nom',
     contactPhone: 'Téléphone',

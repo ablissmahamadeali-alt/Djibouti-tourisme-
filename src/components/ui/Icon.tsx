@@ -1,5 +1,6 @@
 import Feather from '@expo/vector-icons/Feather';
 import type { ComponentProps } from 'react';
+import type { ColorValue } from 'react-native';
 
 import { colors } from '@/design/tokens';
 
@@ -13,7 +14,7 @@ export function Icon({
 }: {
   name: IconName;
   size?: number;
-  color?: string;
+  color?: ColorValue;
 }) {
   return <Feather name={name} size={size} color={color} accessibilityElementsHidden importantForAccessibility="no" />;
 }

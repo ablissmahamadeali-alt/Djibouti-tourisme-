@@ -1,0 +1,12 @@
+<!-- Marque Bahri : soleil sable posé sur l'horizon du golfe, mer turquoise. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <clipPath id="sky"><rect x="0" y="0" width="1024" height="560"/></clipPath>
+  </defs>
+  <g transform="translate(0 -57)">
+  <circle cx="512" cy="560" r="210" fill="#E4D3B4" clip-path="url(#sky)"/>
+  <rect x="152" y="584" width="720" height="44" rx="22" fill="#169A97"/>
+  <rect x="252" y="664" width="520" height="44" rx="22" fill="#169A97"/>
+  <rect x="372" y="744" width="280" height="44" rx="22" fill="#169A97"/>
+  </g>
+</svg>

@@ -95,6 +95,10 @@ export const en: Dictionary = {
     contactPhone: 'Phone',
     contactPhoneHint: 'e.g. 77 12 34 56 or international number with +',
     notes: 'Message to the provider (optional)',
+    paymentMethod: 'Preferred payment method',
+    paymentNotice:
+      'No payment is taken in the app. You will pay the provider with the chosen method, only once your request is confirmed.',
+    payment: { cac_pay: 'CAC Pay', waafi: 'Waafi', dmoney: 'D-Money', cash_on_site: 'Cash at the agency' },
     terms: 'I understand this is a request: the booking is only firm once the provider confirms it.',
     submit: 'Send request',
     submitting: 'Sending…',
@@ -174,6 +178,7 @@ export const en: Dictionary = {
     phone: 'Invalid number.',
     notes: '500 characters maximum.',
     terms: 'You must accept this to continue.',
+    paymentMethod: 'Choose a payment method.',
   },
   region: {
     djibouti: 'Djibouti',

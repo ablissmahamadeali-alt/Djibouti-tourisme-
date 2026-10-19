@@ -1,12 +1,15 @@
 # Paiements et monétisation
 
-**État actuel : paiements désactivés.** Les demandes de réservation sont gratuites et confirmées manuellement par le prestataire ; le paiement se fait directement auprès de lui. C'est volontaire : ni le prestataire de paiement, ni le cadre réglementaire (voir [juridique.md](juridique.md) § 5) ne sont encore établis.
+**État actuel : choix du mode de paiement, sans encaissement.** Lors de sa demande, le client choisit comment il réglera le prestataire : **CAC Pay, Waafi, D-Money ou espèces à l'agence** (champ obligatoire, enregistré dans `bookings.payment_method`, contrôlé par le serveur). Aucun paiement n'est effectué ni affiché comme « payé » dans l'application : le client règle le prestataire **après confirmation** de sa demande. C'est volontaire : aucun contrat marchand ni intégration technique n'existe encore, et le cadre réglementaire n'est pas établi (voir [juridique.md](juridique.md) § 5).
+
+À vérifier avec chaque prestataire : qu'il accepte réellement ces moyens de paiement. À terme, la liste pourra dépendre du prestataire (table de moyens acceptés par prestataire).
 
 ## Solutions repérées (à confirmer par contact commercial)
 
 | Solution | Ce qui a été constaté | Points à vérifier |
 | --- | --- | --- |
 | **D-Money** (Djibouti Telecom) | Émetteur de monnaie électronique figurant parmi les établissements agréés par la BCD ; le site présente une **passerelle de paiement pour e-commerce et applications mobiles** avec documentation technique, suivi des paiements et remboursements ([d-money.dj](https://d-money.dj/)) | Conditions d'ouverture d'un compte marchand, frais, délais de reversement, API et environnement de test, webhooks signés |
+| **CAC Pay** (CAC International Bank) | Proposé au choix du client ; aucune information d'API marchande publique vérifiée | Offre e-commerce, API, frais, délais de reversement |
 | **Waafi** | Application de paiement mobile avec bureau à Djibouti ([Google Play](https://play.google.com/store/apps/details?id=com.safarifone.waafi&hl=en_US)) | Aucune documentation publique d'API marchande trouvée : à demander |
 | **Banques locales** (acquisition carte) | Non vérifié | Offres de paiement par carte en ligne (Visa / Mastercard) pour les touristes étrangers ; conformité 3-D Secure |
 | **Prestataires internationaux** (Stripe, etc.) | Non vérifié | Ne pas supposer qu'ils acceptent une société djiboutienne ; vérifier la liste officielle des pays pris en charge |

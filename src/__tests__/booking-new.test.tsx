@@ -34,6 +34,7 @@ async function fillAndSubmit() {
   await screen.findByText('Lac Assal et Ghoubbet (exemple)');
   await fireEvent.changeText(screen.getByLabelText('Votre nom'), 'Amina Hassan');
   await fireEvent.changeText(screen.getByLabelText('Téléphone'), '77 12 34 56');
+  await fireEvent.press(screen.getByRole('radio', { name: 'D-Money' }));
   await fireEvent.press(screen.getByRole('checkbox'));
   await fireEvent.press(screen.getByRole('button', { name: 'Envoyer la demande' }));
 }
@@ -47,7 +48,7 @@ describe('demande de réservation', () => {
     await fillAndSubmit();
     expect(await screen.findByText(/Connexion impossible\. Rien n’a été réservé/)).toBeTruthy();
     expect(screen.queryByText('Demande envoyée')).toBeNull();
-    expect(submit).toHaveBeenCalledWith(expect.objectContaining({ contactPhone: '+25377123456', kind: 'experience' }));
+    expect(submit).toHaveBeenCalledWith(expect.objectContaining({ contactPhone: '+25377123456', kind: 'experience', paymentMethod: 'dmoney' }));
   });
 
   it('signale clairement le manque de places', async () => {

@@ -83,6 +83,13 @@ describe('demandes de réservation', () => {
     await rejects(requestCrossing(db, ids.alice, 2, { passengers: [{ fullName: 'Seul', category: 'adult' }] }), /INVALID_INPUT/);
   });
 
+  it('enregistre le mode de paiement choisi et refuse un mode inconnu ou absent', async () => {
+    const res = await requestCrossing(db, ids.alice, 1, { kind: 'experience', itemId: ids.experience, passengers: [], serviceDate: inDays(5), paymentMethod: 'cash_on_site' });
+    assert.equal(res.rows[0].payment_method, 'cash_on_site');
+    await rejects(requestCrossing(db, ids.alice, 1, { paymentMethod: 'carte_bancaire' }), /INVALID_INPUT/);
+    await rejects(requestCrossing(db, ids.alice, 1, { paymentMethod: null }), /INVALID_INPUT/);
+  });
+
   it('refuse un numéro de téléphone non normalisé', async () => {
     await rejects(requestCrossing(db, ids.alice, 1, { phone: '77123456' }), /INVALID_INPUT/);
   });

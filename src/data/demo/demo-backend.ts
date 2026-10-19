@@ -168,6 +168,7 @@ export function createDemoBookings(
         contactName: request.contactName,
         contactPhone: request.contactPhone,
         notes: request.notes,
+        paymentMethod: request.paymentMethod,
         createdAt: at,
         updatedAt: at,
         isDemo: true,

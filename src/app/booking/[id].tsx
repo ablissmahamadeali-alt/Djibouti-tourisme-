@@ -76,6 +76,9 @@ export default function BookingStatusScreen() {
         <KeyValue label={t('booking.partySize')} value={String(booking.partySize)} />
         <KeyValue label={t('booking.contactName')} value={booking.contactName} />
         <KeyValue label={t('booking.contactPhone')} value={formatPhone(booking.contactPhone)} />
+        {booking.paymentMethod && (
+          <KeyValue label={t('booking.paymentMethod')} value={t(`booking.payment.${booking.paymentMethod}`)} />
+        )}
       </Card>
 
       {booking.passengers.length > 0 && (

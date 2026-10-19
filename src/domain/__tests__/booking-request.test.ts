@@ -18,6 +18,7 @@ function crossing(overrides: Partial<BookingRequestInput> = {}): BookingRequestI
     contactName: 'Amina Hassan',
     contactPhone: '77 12 34 56',
     notes: '',
+    paymentMethod: 'waafi',
     acceptsTerms: true,
     ...overrides,
   };
@@ -82,6 +83,15 @@ describe('validateBookingRequest', () => {
   it('borne le nombre de voyageurs', () => {
     const result = validateBookingRequest(crossing({ kind: 'stay', partySize: 0, passengers: [] }), TODAY);
     expect(result).toEqual({ ok: false, errors: expect.objectContaining({ partySize: 'validation.partySize' }) });
+  });
+
+  it.each(['cac_pay', 'waafi', 'dmoney', 'cash_on_site'] as const)('accepte le mode de paiement %s', (paymentMethod) => {
+    expect(validateBookingRequest(crossing({ paymentMethod }), TODAY).ok).toBe(true);
+  });
+
+  it('exige un mode de paiement connu', () => {
+    const result = validateBookingRequest(crossing({ paymentMethod: 'carte' as never }), TODAY);
+    expect(result).toEqual({ ok: false, errors: expect.objectContaining({ paymentMethod: 'validation.paymentMethod' }) });
   });
 
   it('signale un téléphone invalide', () => {

@@ -80,7 +80,7 @@ export async function requestCrossing(db, userId, partySize, overrides = {}) {
   const passengers = Array.from({ length: partySize }, (_, i) => ({ fullName: `Passager ${i + 1}`, category: 'adult' }));
   return as(db, userId, (c) =>
     c.query(
-      `select * from public.request_booking($1, $2, $3, $4, $5::jsonb, $6, $7, $8)`,
+      `select * from public.request_booking($1, $2, $3, $4, $5::jsonb, $6, $7, $8, $9)`,
       [
         overrides.kind ?? 'crossing',
         overrides.itemId ?? ids.departure,
@@ -90,6 +90,7 @@ export async function requestCrossing(db, userId, partySize, overrides = {}) {
         'Client Test',
         overrides.phone ?? '+25377123456',
         null,
+        'paymentMethod' in overrides ? overrides.paymentMethod : 'dmoney',
       ],
     ),
   );

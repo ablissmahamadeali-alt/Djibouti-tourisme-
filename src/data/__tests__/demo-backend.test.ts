@@ -46,9 +46,11 @@ describe('backend de démonstration', () => {
       contactName: 'A B',
       contactPhone: '+25377123456',
       notes: null,
+      paymentMethod: 'dmoney',
       acceptsTerms: true,
     });
     expect(booking.isDemo).toBe(true);
+    expect(booking.paymentMethod).toBe('dmoney');
     expect(booking.status).toBe('submitted');
     expect((await backend.catalog.getDeparture(result.departure.id))?.departure.seatsAvailable).toBe(before - 2);
 
@@ -73,6 +75,7 @@ describe('backend de démonstration', () => {
         contactName: 'A B',
         contactPhone: '+25377123456',
         notes: null,
+        paymentMethod: 'cash_on_site',
         acceptsTerms: true,
       }),
     ).rejects.toMatchObject({ code: 'capacity' });

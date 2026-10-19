@@ -2,6 +2,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { AppState } from 'react-native';
 
 import type { BookingStatus } from '@/domain/booking-status';
+import { isPaymentMethod } from '@/domain/payment';
 import type {
   Booking,
   DataReliability,
@@ -119,6 +120,7 @@ const toBooking = (r: Row): Booking => {
     contactName: str(r.contact_name),
     contactPhone: str(r.contact_phone),
     notes: strOrNull(r.notes),
+    paymentMethod: isPaymentMethod(r.payment_method) ? r.payment_method : null,
     createdAt: str(r.created_at),
     updatedAt: str(r.updated_at),
     isDemo: r.is_demo === true,
@@ -265,6 +267,7 @@ function createBookings(db: SupabaseClient): BookingRepository {
           p_contact_name: request.contactName,
           p_contact_phone: request.contactPhone,
           p_notes: request.notes,
+          p_payment_method: request.paymentMethod,
         }),
       );
       return toBooking({ ...created, booking_passengers: [] });

@@ -1,23 +1,37 @@
 # Vidéo tutoriel DjiSea
 
-`djisea-tutoriel.mp4` : vidéo verticale 1080×1920, 70 s, sans son, pour WhatsApp, Instagram, TikTok, Facebook.
+| Fichier | Contenu |
+| --- | --- |
+| `djisea-tutoriel.mp4` | Vidéo verticale 1080×1920, ~68 s, **voix off française + sous-titres incrustés** (+ piste de sous-titres activable) — WhatsApp, Instagram, TikTok, Facebook |
+| `djisea-tutoriel.srt` | Sous-titres séparés (YouTube, Facebook) |
+| `narration.json` | Texte de la voix off, une phrase par étape |
 
-Contenu : ouverture → 6 étapes (choisir le trajet, comparer les départs, vérifier les détails, envoyer la demande, recevoir la référence, suivre la demande) → découverte de Djibouti → hébergements → carte de fin.
+Déroulé : ouverture → choisir le trajet → comparer les départs → vérifier les détails → indiquer les passagers → **choisir le paiement (CAC Pay, Waafi, D-Money, espèces à l'agence)** → recevoir la référence → suivre la demande → découvrir Djibouti et les hébergements → fin.
 
-⚠️ Elle est filmée en **mode démonstration** : prestataires, horaires et tarifs sont **fictifs**, et la vidéo l'indique (« Démonstration — offres fictives »). Pour la communication publique de lancement, la refaire avec les vraies offres une fois les prestataires vérifiés.
+⚠️ Filmée en **mode démonstration** : prestataires, horaires et tarifs sont **fictifs**, ce que la vidéo dit et affiche. Pour la communication publique, la refaire avec les vraies offres.
+
+## Voix off
+
+Voix de synthèse **Piper, modèle « fr_FR-siwis-medium »**, licence **CC-BY 4.0** (corpus SIWIS, Université d'Édimbourg) : usage commercial autorisé, **mention obligatoire**, par exemple dans la description de la publication : « Voix de synthèse : Piper, voix SIWIS (CC-BY 4.0) ».
+
+Pour une campagne de lancement, une voix humaine (comédien local) ou une voix ElevenLabs avec abonnement payant donnera un rendu plus naturel : il suffit de remplacer les fichiers audio, le montage reste identique.
 
 ## Refaire la vidéo
 
 ```bash
+# 1. Application web + mise en scène
 EXPO_OFFLINE=1 npx expo export --platform web --output-dir dist
 ./marketing/video/prepare.sh
-EXPO_OFFLINE=1 npx expo serve --port 8099 &          # sert dist/
-npm i --no-save playwright-core
-mkdir -p /tmp/frames
-CHROMIUM_PATH=/chemin/vers/chrome node marketing/video/record.mjs /tmp/frames
-ffmpeg -f concat -safe 0 -i /tmp/frames/frames.ffconcat \
-  -vf "fps=30,scale=1080:1920:flags=lanczos,format=yuv420p" \
-  -c:v libx264 -preset slow -crf 20 -movflags +faststart -an marketing/video/djisea-tutoriel.mp4
+EXPO_OFFLINE=1 npx expo serve --port 8099 &
+
+# 2. Voix off (Python : pip install piper-tts ; modèle fr_FR-siwis-medium téléchargé à part)
+python voix.py fr_FR-siwis-medium.onnx marketing/video/narration.json /tmp/voix
+
+# 3. Tournage synchronisé sur la durée de chaque phrase (npm i --no-save playwright-core)
+CHROMIUM_PATH=/chemin/vers/chrome node marketing/video/record.mjs /tmp/images /tmp/voix/segments.json
+
+# 4. Montage (ffmpeg)
+python marketing/video/montage.py /tmp/images /tmp/voix/segments.json marketing/video/djisea-tutoriel.mp4
 ```
 
-Les titres d'étapes se modifient dans `record.mjs`, la mise en page dans `stage.html`.
+Textes de la voix : `narration.json`. Titres d'étapes et gestes : `record.mjs`. Mise en page : `stage.html`.

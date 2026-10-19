@@ -1,4 +1,5 @@
 import type { BookingStatus } from './booking-status';
+import type { PaymentMethod } from './payment';
 
 /**
  * Niveau de fiabilité d'une information affichée.
@@ -126,6 +127,8 @@ export type Booking = {
   contactName: string;
   contactPhone: string;
   notes: string | null;
+  /** Mode de paiement choisi ; le règlement se fait auprès du prestataire après confirmation. */
+  paymentMethod: PaymentMethod | null;
   createdAt: string;
   updatedAt: string;
   isDemo: boolean;

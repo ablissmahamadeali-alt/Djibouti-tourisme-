@@ -101,6 +101,10 @@ export const fr = {
     contactPhone: 'Téléphone',
     contactPhoneHint: 'Ex. 77 12 34 56 ou numéro international avec +',
     notes: 'Message au prestataire (facultatif)',
+    paymentMethod: 'Mode de paiement souhaité',
+    paymentNotice:
+      'Aucun paiement n’est effectué dans l’application. Vous réglerez le prestataire avec le moyen choisi, uniquement après confirmation de votre demande.',
+    payment: { cac_pay: 'CAC Pay', waafi: 'Waafi', dmoney: 'D-Money', cash_on_site: 'Espèces à l’agence' },
     terms:
       'Je comprends qu’il s’agit d’une demande : la réservation n’est ferme qu’après confirmation du prestataire.',
     submit: 'Envoyer la demande',
@@ -184,6 +188,7 @@ export const fr = {
     phone: 'Numéro invalide.',
     notes: '500 caractères maximum.',
     terms: 'Vous devez accepter ce point pour continuer.',
+    paymentMethod: 'Choisissez un mode de paiement.',
   },
   region: {
     djibouti: 'Djibouti',

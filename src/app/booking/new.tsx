@@ -24,6 +24,7 @@ import { BookingError, type BookingErrorCode } from '@/data/repository';
 import { useResource } from '@/data/use-resource';
 import { MAX_PARTY_SIZE, validateBookingRequest, type FieldErrors } from '@/domain/booking-request';
 import type { BookableKind, Booking, Passenger } from '@/domain/models';
+import { PAYMENT_METHODS, type PaymentMethod } from '@/domain/payment';
 import { formatDate } from '@/domain/format';
 import { djiboutiDate, djiboutiToday } from '@/domain/time';
 import { spacing } from '@/design/tokens';
@@ -68,6 +69,7 @@ export default function NewBookingScreen() {
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [notes, setNotes] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod | null>(null);
   const [acceptsTerms, setAcceptsTerms] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -129,6 +131,8 @@ export default function NewBookingScreen() {
         contactName,
         contactPhone,
         notes,
+        // Valeur vide si rien n'est choisi : la validation affichera le message adéquat.
+        paymentMethod: (paymentMethod ?? '') as PaymentMethod,
         acceptsTerms: acceptsTerms as true,
       },
       today,
@@ -222,6 +226,16 @@ export default function NewBookingScreen() {
           hint={t('booking.contactPhoneHint')}
           error={fieldError('contactPhone')}
         />
+        <View style={styles.gap}>
+          <ChoiceChips
+            label={t('booking.paymentMethod')}
+            value={paymentMethod}
+            options={PAYMENT_METHODS.map((m) => ({ value: m, label: t(`booking.payment.${m}`) }))}
+            onChange={setPaymentMethod}
+          />
+          {fieldError('paymentMethod') && <AppText variant="small" tone="danger">{fieldError('paymentMethod')}</AppText>}
+          <Notice tone="info" body={t('booking.paymentNotice')} />
+        </View>
         <TextField
           label={t('booking.notes')}
           value={notes}

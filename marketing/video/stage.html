@@ -16,13 +16,19 @@
   #title { font-family: Fraunces, serif; font-weight: 600; font-size: 66px; line-height: 1.1; margin-top: 18px; }
   #sub { font-size: 32px; color: #B9C7D6; margin-top: 12px; line-height: 1.3; }
   #phone { position: absolute; left: 50%; top: 330px; width: 390px; height: 844px;
-           transform: translateX(-50%) scale(1.85); transform-origin: top center;
+           transform: translateX(-50%) scale(1.68); transform-origin: top center;
            border-radius: 26px; overflow: hidden; box-shadow: 0 0 0 5px #123257, 0 0 0 7px #169A97; background: #FAF8F4; }
   #phone iframe { width: 390px; height: 844px; border: 0; display: block; }
   .tap { position: absolute; width: 90px; height: 90px; margin: -45px 0 0 -45px; border-radius: 50%;
          background: rgba(228, 211, 180, .55); border: 4px solid #E4D3B4; pointer-events: none;
          animation: tap .7s ease-out forwards; z-index: 5; }
   @keyframes tap { from { transform: scale(.4); opacity: 1 } to { transform: scale(1.3); opacity: 0 } }
+  /* Sous-titres incrustés (la plupart des vidéos sont regardées sans le son). */
+  #subtitle { position: absolute; left: 60px; right: 60px; bottom: 34px; min-height: 110px; z-index: 20;
+              display: flex; align-items: center; justify-content: center; text-align: center; }
+  #subtitle span { background: rgba(5, 18, 33, .88); color: #fff; font-size: 38px; line-height: 1.3; font-weight: 600;
+                   padding: 10px 22px; border-radius: 14px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  #subtitle:empty { display: none; }
   #card { position: absolute; inset: 0; background: #0B2540; z-index: 10; display: flex; flex-direction: column;
           align-items: center; justify-content: center; text-align: center; padding: 0 90px; transition: opacity .5s; }
   #card.hidden { opacity: 0; pointer-events: none; }
@@ -40,6 +46,7 @@
   <div id="caption"><span id="chip"></span><div id="title"></div><div id="sub"></div></div>
   <div id="phone"><iframe id="app" src="/"></iframe></div>
   <div id="card"></div>
+  <div id="subtitle"></div>
 <script>
   window.setCaption = (chip, title, sub) => {
     const c = document.getElementById('caption');
@@ -53,6 +60,11 @@
     }, 350);
   };
   window.showCard = (html) => { const c = document.getElementById('card'); c.innerHTML = html; c.classList.remove('hidden'); };
+  window.setSubtitle = (text) => {
+    const el = document.getElementById('subtitle');
+    el.innerHTML = '';
+    if (text) { const span = document.createElement('span'); span.textContent = text; el.appendChild(span); }
+  };
   window.hideCard = () => document.getElementById('card').classList.add('hidden');
   // Cercle de « toucher » aux coordonnées de la page.
   window.tapAt = (x, y) => {

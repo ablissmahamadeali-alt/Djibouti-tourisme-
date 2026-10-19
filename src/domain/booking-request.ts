@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { PAYMENT_METHODS } from './payment';
+
 /**
  * Validation d'une demande de réservation.
  *
@@ -70,6 +72,7 @@ export function bookingRequestSchema(today: string) {
         .trim()
         .max(500, { error: 'validation.notes' })
         .transform((value) => (value.length === 0 ? null : value)),
+      paymentMethod: z.enum(PAYMENT_METHODS, { error: 'validation.paymentMethod' }),
       acceptsTerms: z.literal(true, { error: 'validation.terms' }),
     })
     .superRefine((value, ctx) => {

@@ -1,0 +1,55 @@
+1
+00:00:00,717 --> 00:00:05,400
+Avec DjiSea, réservez votre traversée du golfe de Tadjourah en quelques gestes.
+
+2
+00:00:05,400 --> 00:00:09,076
+Dans cette démonstration, les offres présentées sont fictives.
+
+3
+00:00:09,432 --> 00:00:14,389
+Choisissez votre départ, votre arrivée, la date, et le nombre de passagers.
+
+4
+00:00:17,140 --> 00:00:18,632
+Comparez les départs :
+
+5
+00:00:18,632 --> 00:00:22,295
+l’horaire, la durée, le tarif et les places restantes.
+
+6
+00:00:23,998 --> 00:00:27,353
+Vérifiez les conditions de transport et le prestataire.
+
+7
+00:00:29,797 --> 00:00:33,756
+Indiquez le nom de chaque passager, puis votre numéro de téléphone.
+
+8
+00:00:38,329 --> 00:00:40,390
+Choisissez votre mode de paiement :
+
+9
+00:00:40,390 --> 00:00:43,159
+CAC Pay, Waafi, D-Money, ou espèces à l’agence.
+
+10
+00:00:43,159 --> 00:00:46,340
+Vous ne payez qu’après la confirmation du prestataire.
+
+11
+00:00:46,694 --> 00:00:50,665
+Envoyez votre demande : vous recevez aussitôt votre référence.
+
+12
+00:00:52,744 --> 00:00:55,646
+Suivez ensuite chaque étape, jusqu’à la confirmation.
+
+13
+00:00:56,475 --> 00:01:00,701
+Découvrez aussi les plus beaux sites de Djibouti, et trouvez où dormir.
+
+14
+00:01:05,187 --> 00:01:08,298
+DjiSea. Bientôt sur Google Play et l’App Store.

@@ -6,10 +6,10 @@ Ces étapes demandent **vos** comptes (Expo, Apple, Google) : elles ne peuvent p
 
 | Plateforme | Identifiant | Remarque |
 | --- | --- | --- |
-| Android | `dj.bahri.app` | **Définitif après la première publication sur Google Play** |
-| iOS | `dj.bahri.app` | Définitif après création dans App Store Connect |
+| Android | `dj.djisea.app` | **Définitif après la première publication sur Google Play** |
+| iOS | `dj.djisea.app` | Définitif après création dans App Store Connect |
 
-⚠️ À confirmer **avant** le premier build de production. Il est d'usage d'utiliser un nom de domaine que l'on possède (inversé) : si vous achetez un autre domaine que `bahri.dj`, changez ces identifiants dans `app.json` maintenant.
+⚠️ À confirmer **avant** le premier build de production. Il est d'usage d'utiliser un nom de domaine que l'on possède (inversé) : si vous achetez un autre domaine que `djisea.dj`, changez ces identifiants dans `app.json` maintenant.
 
 ## Ce qui a déjà été vérifié dans l'environnement cloud
 
@@ -71,10 +71,10 @@ Déclarer `EXPO_PUBLIC_SUPABASE_URL` et `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` d
 
 ## 6. Fiches des boutiques (brouillon)
 
-- **Nom** : Bahri — Traversées & Djibouti
+- **Nom** : DjiSea — Traversées & Djibouti
 - **Sous-titre** : Golfe de Tadjourah, excursions, hébergements
 - **Description courte** : Trouvez une traversée, découvrez Djibouti et contactez des prestataires locaux vérifiés.
-- **Mention obligatoire dans la description** : « Bahri est une plateforme indépendante de mise en relation. Les traversées et prestations sont assurées par leurs exploitants. »
+- **Mention obligatoire dans la description** : « DjiSea est une plateforme indépendante de mise en relation. Les traversées et prestations sont assurées par leurs exploitants. »
 - **Catégorie** : Voyages
 
 ## 7. Recette avant lancement

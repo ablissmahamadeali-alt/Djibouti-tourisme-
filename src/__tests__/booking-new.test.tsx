@@ -71,7 +71,7 @@ describe('demande de réservation', () => {
     await renderWith(demo);
     await fillAndSubmit();
     await waitFor(() => expect(screen.getByText('Demande envoyée')).toBeTruthy());
-    expect(screen.getByText(/^BH-[A-Z2-9]{8}$/)).toBeTruthy();
+    expect(screen.getByText(/^DS-[A-Z2-9]{8}$/)).toBeTruthy();
     expect(screen.getByText(/Aucun prestataire n’a été contacté/)).toBeTruthy();
   });
 });

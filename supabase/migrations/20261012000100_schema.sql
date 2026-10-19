@@ -1,5 +1,5 @@
 -- =============================================================================
--- Bahri — schéma principal
+-- DjiSea — schéma principal
 -- Conventions :
 --   * identifiants uuid, horodatages timestamptz (stockés en UTC, affichés en heure de Djibouti)
 --   * montants en entiers DJF
@@ -193,7 +193,7 @@ create trigger stays_updated_at before update on public.stays
 -- -----------------------------------------------------------------------------
 create table public.bookings (
   id uuid primary key default gen_random_uuid(),
-  reference text not null unique check (reference ~ '^BH-[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{8}$'),
+  reference text not null unique check (reference ~ '^DS-[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{8}$'),
   customer_id uuid not null references auth.users (id) on delete restrict,
   kind text not null check (kind in ('crossing', 'experience', 'stay')),
   departure_id uuid references public.departures (id),

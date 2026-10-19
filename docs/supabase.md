@@ -6,8 +6,8 @@ Durée estimée : 1 à 2 heures. Ces étapes nécessitent **votre** compte : ell
 
 Créez sur [supabase.com](https://supabase.com) :
 
-- `bahri-recette` (tests, données de démonstration) ;
-- `bahri-production` (vraies données, jamais de données de démo).
+- `djisea-recette` (tests, données de démonstration) ;
+- `djisea-production` (vraies données, jamais de données de démo).
 
 **Région** : choisir une région proche (par exemple Europe centrale). ⚠️ Héberger les données hors de Djibouti constitue un **transfert international de données personnelles** : vérifier les conditions posées par la loi djiboutienne sur la protection des données (voir [juridique.md](juridique.md)).
 
@@ -22,7 +22,7 @@ npx supabase@latest link --project-ref <identifiant-du-projet>
 npx supabase@latest db push         # applique supabase/migrations/*.sql
 ```
 
-Pour la **recette uniquement**, charger les données fictives : copier le contenu de `supabase/seed.sql` dans l'éditeur SQL du tableau de bord du projet `bahri-recette`.
+Pour la **recette uniquement**, charger les données fictives : copier le contenu de `supabase/seed.sql` dans l'éditeur SQL du tableau de bord du projet `djisea-recette`.
 
 ## 3. Authentification par code e-mail
 

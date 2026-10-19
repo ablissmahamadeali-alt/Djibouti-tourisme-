@@ -1,4 +1,4 @@
-# Système de design « Bahri »
+# Système de design « DjiSea »
 
 Source : `src/design/tokens.ts` et `src/components/ui/`.
 

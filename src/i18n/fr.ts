@@ -1,6 +1,6 @@
 export const fr = {
   common: {
-    appName: 'Bahri',
+    appName: 'DjiSea',
     tagline: 'Traversées et escapades à Djibouti',
     retry: 'Réessayer',
     loading: 'Chargement…',
@@ -37,7 +37,7 @@ export const fr = {
   },
   sponsored: {
     label: 'Sponsorisé',
-    explainer: 'Contenu payé par le prestataire. Bahri ne garantit pas ses prestations.',
+    explainer: 'Contenu payé par le prestataire. DjiSea ne garantit pas ses prestations.',
   },
   home: {
     greeting: 'Le golfe de Tadjourah, à portée de main',
@@ -47,7 +47,7 @@ export const fr = {
     stays: 'Où dormir',
     partners: 'Offres partenaires',
     intermediary:
-      'Bahri est une plateforme indépendante de mise en relation. Les traversées et prestations sont assurées par leurs exploitants.',
+      'DjiSea est une plateforme indépendante de mise en relation. Les traversées et prestations sont assurées par leurs exploitants.',
   },
   crossings: {
     title: 'Traversées',
@@ -143,7 +143,7 @@ export const fr = {
     privacy: 'Confidentialité et données',
     privacyBody:
       'Nous ne collectons que les informations nécessaires à vos demandes. Vous pouvez demander l’accès, la rectification ou la suppression de vos données.',
-    about: 'À propos de Bahri',
+    about: 'À propos de DjiSea',
     demoAuth:
       'La connexion sera activée lorsque le serveur sera configuré. En démonstration, vos demandes fictives restent sur cet appareil.',
     providerSpace: 'Vous êtes prestataire ?',
@@ -164,8 +164,8 @@ export const fr = {
   about: {
     title: 'À propos',
     body: [
-      'Bahri est une plateforme indépendante qui aide à découvrir Djibouti et à contacter les prestataires de transport maritime, d’hébergement et d’activités.',
-      'Bahri n’est ni armateur, ni exploitant de lignes maritimes, ni hôtel. Chaque prestation est assurée par le prestataire indiqué, sous sa responsabilité.',
+      'DjiSea est une plateforme indépendante qui aide à découvrir Djibouti et à contacter les prestataires de transport maritime, d’hébergement et d’activités.',
+      'DjiSea n’est ni armateur, ni exploitant de lignes maritimes, ni hôtel. Chaque prestation est assurée par le prestataire indiqué, sous sa responsabilité.',
       'Les horaires, tarifs et disponibilités ne sont présentés comme vérifiés que lorsqu’ils ont été confirmés par le prestataire.',
       'Les contenus sponsorisés sont toujours signalés comme tels.',
     ],

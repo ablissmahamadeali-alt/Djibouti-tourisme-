@@ -1,12 +1,12 @@
-# Bahri — traversées et tourisme à Djibouti
+# DjiSea — traversées et tourisme à Djibouti
 
 Application mobile (Android et iOS, base de code unique) de mise en relation pour le transport maritime et le tourisme à Djibouti : traversées du golfe de Tadjourah, destinations, excursions, hébergements et prestataires locaux.
 
-> **Nom provisoire.** « Bahri » (« maritime » en arabe) est un nom de travail. Vérifier sa disponibilité (marque, nom de domaine, boutiques d'applications) avant tout lancement.
+> **Nom : DjiSea** (« Djibouti » + « sea », la mer). Vérifier sa disponibilité (dépôt de marque, nom de domaine, boutiques d'applications) avant tout lancement.
 
 > **Statut : prototype fonctionnel en mode démonstration.** Toutes les offres affichées (prestataires, trajets, horaires, tarifs, hébergements, excursions, annonces) sont **fictives** et signalées comme telles dans l'application. Les destinations sont des lieux réels, mais leurs descriptions ne sont **pas vérifiées**.
 
-Bahri est une plateforme **indépendante d'intermédiation**. Elle n'est ni armateur, ni exploitant de lignes maritimes, ni hôtel, et ne détient aucune autorisation officielle à ce jour.
+DjiSea est une plateforme **indépendante d'intermédiation**. Elle n'est ni armateur, ni exploitant de lignes maritimes, ni hôtel, et ne détient aucune autorisation officielle à ce jour.
 
 ![Aperçu : accueil, fiche destination, découverte, séjours (version web, mode démonstration)](docs/apercu-ecrans.png)
 

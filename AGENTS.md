@@ -1,4 +1,4 @@
-# Bahri — règles du projet
+# DjiSea — règles du projet
 
 Lire `README.md` et `docs/architecture.md` avant toute modification.
 

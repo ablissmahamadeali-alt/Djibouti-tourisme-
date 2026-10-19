@@ -54,7 +54,7 @@ describe('demandes de réservation', () => {
     const res = await requestCrossing(db, ids.alice, 2);
     const booking = res.rows[0];
     assert.equal(booking.status, 'submitted');
-    assert.match(booking.reference, /^BH-[A-HJKMNP-Z2-9]{8}$/);
+    assert.match(booking.reference, /^DS-[A-HJKMNP-Z2-9]{8}$/);
     assert.equal(booking.provider_id, ids.providerA);
     assert.equal(booking.quoted_total_djf, 2000);
     await as(db, ids.alice, async (c) => {

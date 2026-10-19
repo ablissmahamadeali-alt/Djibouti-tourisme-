@@ -6,9 +6,9 @@
 
 ## 1. Qui sommes-nous ?
 
-L'application Bahri est éditée par **[raison sociale, forme, capital, numéro d'immatriculation, adresse à Djibouti]**, joignable à **[adresse e-mail dédiée à la confidentialité]**.
+L'application DjiSea est éditée par **[raison sociale, forme, capital, numéro d'immatriculation, adresse à Djibouti]**, joignable à **[adresse e-mail dédiée à la confidentialité]**.
 
-Bahri est une plateforme de mise en relation entre voyageurs et prestataires (transport maritime, hébergement, activités). Les prestataires sont responsables des prestations qu'ils fournissent.
+DjiSea est une plateforme de mise en relation entre voyageurs et prestataires (transport maritime, hébergement, activités). Les prestataires sont responsables des prestations qu'ils fournissent.
 
 ## 2. Quelles données collectons-nous ?
 

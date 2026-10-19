@@ -55,7 +55,7 @@ Les écrans ne connaissent que les interfaces de `src/data/repository.ts` ; ajou
 | `destinations` | Lieux (port ou non), publiés par la plateforme |
 | `routes` / `departures` | Trajets (origine, destination, tarif, conditions) et départs datés avec capacité |
 | `experiences` / `stays` | Excursions, circuits, activités, guides / hébergements |
-| `bookings` | Demandes : référence unique `BH-XXXXXXXX`, statut, horodatages, montant indicatif |
+| `bookings` | Demandes : référence unique `DS-XXXXXXXX`, statut, horodatages, montant indicatif |
 | `booking_passengers` | Manifeste nominatif |
 | `booking_events` | Historique des statuts (chronologie affichée + audit) |
 | `payments` / `refunds` | Prêtes pour un futur prestataire de paiement ; **aucune donnée de carte** |

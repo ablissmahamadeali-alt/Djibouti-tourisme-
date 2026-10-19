@@ -1,5 +1,5 @@
 /**
- * Système de design « Bahri ».
+ * Système de design « DjiSea ».
  *
  * Inspiration : le golfe de Tadjourah — bleu marin profond du large, turquoise
  * des hauts-fonds, blanc cassé de la lumière, sable des plages et des lacs salés.

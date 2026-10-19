@@ -1,5 +1,5 @@
 -- =============================================================================
--- Bahri — fonctions serveur de réservation
+-- DjiSea — fonctions serveur de réservation
 --
 -- Les clients ne peuvent ni insérer ni modifier directement une réservation.
 -- Tout passe par ces fonctions, qui :
@@ -46,7 +46,7 @@ create or replace function public.generate_booking_reference() returns text
 language plpgsql volatile set search_path = '' as $$
 declare
   v_alphabet constant text := 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
-  v_ref text := 'BH-';
+  v_ref text := 'DS-';
 begin
   for i in 1..8 loop
     v_ref := v_ref || substr(v_alphabet, 1 + floor(random() * length(v_alphabet))::int, 1);

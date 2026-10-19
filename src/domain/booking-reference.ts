@@ -7,14 +7,14 @@
 
 export const REFERENCE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
 const REFERENCE_BODY_LENGTH = 8;
-export const REFERENCE_PATTERN = /^BH-[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{8}$/;
+export const REFERENCE_PATTERN = /^DS-[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{8}$/;
 
 export function generateBookingReference(random: () => number = Math.random): string {
   let body = '';
   for (let i = 0; i < REFERENCE_BODY_LENGTH; i++) {
     body += REFERENCE_ALPHABET[Math.floor(random() * REFERENCE_ALPHABET.length)];
   }
-  return `BH-${body}`;
+  return `DS-${body}`;
 }
 
 export function isBookingReference(value: string): boolean {

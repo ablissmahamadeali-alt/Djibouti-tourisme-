@@ -24,7 +24,7 @@ import {
   demoStays,
 } from './demo-data';
 
-const STORAGE_KEY = 'bahri.demo.bookings.v1';
+const STORAGE_KEY = 'djisea.demo.bookings.v1';
 
 type StoredBooking = { booking: Booking; timeline: BookingDetail['timeline'] };
 

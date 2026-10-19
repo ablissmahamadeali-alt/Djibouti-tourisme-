@@ -1,5 +1,5 @@
 -- =============================================================================
--- Bahri — sécurité : privilèges, Row Level Security, garde-fous, audit
+-- DjiSea — sécurité : privilèges, Row Level Security, garde-fous, audit
 --
 -- Principe : tout est interdit par défaut, puis ouvert explicitement.
 --   anon          : lecture du catalogue publié uniquement

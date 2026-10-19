@@ -4,7 +4,7 @@
 
 ## 1. Qualification de l'activité de la plateforme
 
-Question centrale : selon la manière dont Bahri fonctionne, elle peut être qualifiée de simple **hébergeur / annuaire**, d'**intermédiaire** de réservation, ou d'**agence de voyages / opérateur de services touristiques**. Chaque qualification entraîne des obligations différentes.
+Question centrale : selon la manière dont DjiSea fonctionne, elle peut être qualifiée de simple **hébergeur / annuaire**, d'**intermédiaire** de réservation, ou d'**agence de voyages / opérateur de services touristiques**. Chaque qualification entraîne des obligations différentes.
 
 | Mode de fonctionnement | Qualification probable à analyser |
 | --- | --- |
@@ -41,7 +41,7 @@ Le **Code du numérique**, dont la loi d'approbation a été adoptée le 30 juin
 
 Selon des sources secondaires **non vérifiées dans le texte officiel** : droits des personnes, obligations de minimisation et de protection dès la conception, notification des violations (un délai de 72 h est avancé), **régime d'autorisation des transferts vers des pays tiers**, autorisation préalable pour certains traitements à risque. Les sources divergent sur la mise en place effective de la CNDP.
 
-Conséquences pour Bahri :
+Conséquences pour DjiSea :
 
 - **Hébergement hors de Djibouti** (Supabase, serveurs en Europe ou ailleurs) = transfert international : vérifier s'il faut une autorisation ou des garanties.
 - Données traitées : identité et téléphone du client, **noms des passagers** (y compris d'enfants), historique de réservations. Pas de données de carte bancaire.
@@ -58,7 +58,7 @@ Le Code du numérique traite aussi du commerce électronique (contrats en ligne)
 ## 5. Paiements
 
 - La **Banque Centrale de Djibouti (BCD)** soumet les établissements financiers à agrément ; l'**Instruction n° 2017-01** encadre les émetteurs de monnaie électronique ([instructions BCD](https://banque-centrale.dj/les-instructions/), [établissements agréés](https://banque-centrale.dj/les-etablissements-agrees/)).
-- **Encaisser des fonds pour le compte de tiers** (le client paie Bahri, qui reverse au prestataire) pourrait relever d'une activité réglementée : à vérifier avec la BCD et la banque choisie. Alternative plus simple : le client paie le prestataire directement, Bahri facture une commission au prestataire.
+- **Encaisser des fonds pour le compte de tiers** (le client paie DjiSea, qui reverse au prestataire) pourrait relever d'une activité réglementée : à vérifier avec la BCD et la banque choisie. Alternative plus simple : le client paie le prestataire directement, DjiSea facture une commission au prestataire.
 - Voir [paiements.md](paiements.md).
 
 ## 6. Fiscalité et statut de l'entreprise

@@ -2,7 +2,7 @@ import type { Dictionary } from './fr';
 
 export const en: Dictionary = {
   common: {
-    appName: 'Bahri',
+    appName: 'DjiSea',
     tagline: 'Sea crossings and getaways in Djibouti',
     retry: 'Try again',
     loading: 'Loading…',
@@ -32,7 +32,7 @@ export const en: Dictionary = {
   },
   sponsored: {
     label: 'Sponsored',
-    explainer: 'Paid content from the provider. Bahri does not guarantee their services.',
+    explainer: 'Paid content from the provider. DjiSea does not guarantee their services.',
   },
   home: {
     greeting: 'The Gulf of Tadjourah, within reach',
@@ -42,7 +42,7 @@ export const en: Dictionary = {
     stays: 'Where to stay',
     partners: 'Partner offers',
     intermediary:
-      'Bahri is an independent booking platform. Crossings and services are operated by their providers.',
+      'DjiSea is an independent booking platform. Crossings and services are operated by their providers.',
   },
   crossings: {
     title: 'Crossings',
@@ -134,7 +134,7 @@ export const en: Dictionary = {
     privacy: 'Privacy and data',
     privacyBody:
       'We only collect what your requests need. You can ask to access, correct or delete your data.',
-    about: 'About Bahri',
+    about: 'About DjiSea',
     demoAuth: 'Sign-in will be enabled once the server is configured. In demo mode, requests stay on this device.',
     providerSpace: 'Are you a provider?',
     providerSpaceBody:
@@ -154,8 +154,8 @@ export const en: Dictionary = {
   about: {
     title: 'About',
     body: [
-      'Bahri is an independent platform to discover Djibouti and reach sea transport, accommodation and activity providers.',
-      'Bahri is not a ship owner, a ferry operator or a hotel. Each service is provided by the listed provider, under its responsibility.',
+      'DjiSea is an independent platform to discover Djibouti and reach sea transport, accommodation and activity providers.',
+      'DjiSea is not a ship owner, a ferry operator or a hotel. Each service is provided by the listed provider, under its responsibility.',
       'Schedules, fares and availability are shown as verified only once confirmed by the provider.',
       'Sponsored content is always labelled as such.',
     ],

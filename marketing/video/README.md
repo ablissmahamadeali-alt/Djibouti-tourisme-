@@ -10,6 +10,13 @@ Déroulé : ouverture → choisir le trajet → comparer les départs → vérif
 
 ⚠️ Filmée en **mode démonstration** : prestataires, horaires et tarifs sont **fictifs**, ce que la vidéo dit et affiche. Pour la communication publique, la refaire avec les vraies offres.
 
+## Version « mobilisation » (`mobilisation/`)
+
+Destinée à Facebook : montrer au public et à l'agence maritime que l'application est prête, et inviter au partage.
+Ouverture « Vous l'avez demandée. La voici », paiement mobile présenté « dès la signature des accords », fin « Il ne manque que le feu vert — partagez ».
+Fichiers : `djisea-mobilisation.mp4`, `.srt`, `narration.json`, `cartes.json` (textes des cartes) et `publication-facebook.md` (texte du post).
+Tournage : `node record.mjs <images> <segments.json> mobilisation/cartes.json`.
+
 ## Voix off
 
 Voix de synthèse **Piper, modèle « fr_FR-siwis-medium »**, licence **CC-BY 4.0** (corpus SIWIS, Université d'Édimbourg) : usage commercial autorisé, **mention obligatoire**, par exemple dans la description de la publication : « Voix de synthèse : Piper, voix SIWIS (CC-BY 4.0) ».

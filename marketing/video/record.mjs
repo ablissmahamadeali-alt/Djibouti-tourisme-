@@ -8,8 +8,15 @@
 import { chromium } from 'playwright-core';
 import { readFileSync, writeFileSync } from 'node:fs';
 
-const [outDir, segmentsFile] = process.argv.slice(2);
+const [outDir, segmentsFile, cardsFile] = process.argv.slice(2);
 const segments = JSON.parse(readFileSync(segmentsFile, 'utf8'));
+// Textes des cartes d'ouverture et de fin (HTML) : variante choisie par fichier, sinon version démonstration.
+const cards = cardsFile
+  ? JSON.parse(readFileSync(cardsFile, 'utf8'))
+  : {
+      intro: '<p class="big">Réservez votre traversée<br>du golfe de Tadjourah<br>en quelques gestes.</p><span class="demo">DÉMONSTRATION — OFFRES FICTIVES</span>',
+      end: '<p>Bientôt sur Google Play<br>et l’App Store</p><p class="note">Plateforme indépendante de mise en relation.<br>Les traversées et prestations sont assurées par leurs exploitants.<br>Paiement au prestataire après confirmation de la demande.</p><span class="demo">IMAGES DE DÉMONSTRATION — OFFRES FICTIVES</span>',
+    };
 
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
 const context = await browser.newContext({ viewport: { width: 1080, height: 1920 }, locale: 'fr-FR' });
@@ -97,7 +104,7 @@ const captureStart = Date.now() / 1000;
 await wait(800);
 await narrate(0);
 await wait(2600);
-await page.evaluate(() => window.showCard(`<p class="big">Réservez votre traversée<br>du golfe de Tadjourah<br>en quelques gestes.</p><span class="demo">DÉMONSTRATION — OFFRES FICTIVES</span>`));
+await page.evaluate((html) => window.showCard(html), cards.intro);
 await waitNarration();
 
 // --- 1. Recherche -------------------------------------------------------------------
@@ -193,11 +200,7 @@ await scroll(400, 20);
 await waitNarration();
 
 // --- 9. Fin -----------------------------------------------------------------------------------
-await page.evaluate((logo) => window.showCard(
-  `${logo}<h1>DjiSea</h1><div class="line"></div>
-   <p>Bientôt sur Google Play<br>et l’App Store</p>
-   <p class="note">Plateforme indépendante de mise en relation.<br>Les traversées et prestations sont assurées par leurs exploitants.<br>Paiement au prestataire après confirmation de la demande.</p>
-   <span class="demo">IMAGES DE DÉMONSTRATION — OFFRES FICTIVES</span>`), LOGO);
+await page.evaluate(([logo, html]) => window.showCard(`${logo}<h1>DjiSea</h1><div class="line"></div>${html}`), [LOGO, cards.end]);
 await wait(400);
 await narrate(9);
 await waitNarration();

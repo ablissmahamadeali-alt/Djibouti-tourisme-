@@ -55,7 +55,8 @@ export default function CrossingsScreen() {
         <CrossingSearch key={paramsKey} ports={ports} initial={initial} onSearch={setQuery} />
       )}
 
-      {query && (
+      {/* Le titre affiche les noms des ports : attendre qu'ils soient chargés. */}
+      {query && destinations.data && (
         <Section title={`${destinationName(query.originId)} → ${destinationName(query.destinationId)} · ${formatDate(query.date, getLocale())}`}>
           {results.loading && <LoadingState rows={2} />}
           {results.error && <ErrorState onRetry={results.reload} />}
